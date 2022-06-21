@@ -68,3 +68,17 @@ describe "#find_neighbours" do
 		to match_array [2,5,6]
 	end
 end
+
+describe '#set_cell_status' do 
+
+	it 'returns :alive for [:alive,:alive,:alive]' do 
+		expect(set_cell_status([:alive,:alive,:alive])).
+		to eq :alive
+	end
+
+	it 'returns :dead for [:dead,:dead,:alive]' do 
+		expect(set_cell_status([:dead,:dead,:alive])).
+		to eq :dead
+	end
+
+end

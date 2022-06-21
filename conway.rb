@@ -42,3 +42,11 @@ def find_neighbours(grid,coords)
 	neighbours.select { |e| e != nil  }
 
 end
+
+def set_cell_status(neighbours)
+
+	return :dead if neighbours == [:dead,:dead,:alive]
+
+	:alive
+
+end
