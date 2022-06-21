@@ -71,14 +71,24 @@ end
 
 describe '#set_cell_status' do 
 
-	it 'returns :alive for [:alive,:alive,:alive]' do 
-		expect(set_cell_status([:alive,:alive,:alive])).
+	it 'returns :alive for :alive and [:alive,:alive,:alive]' do 
+		expect(set_cell_status(:alive,[:alive,:alive,:alive])).
 		to eq :alive
 	end
 
-	it 'returns :dead for [:dead,:dead,:alive]' do 
-		expect(set_cell_status([:dead,:dead,:alive])).
+	it 'returns :dead for :dead and [:dead,:dead,:alive]' do 
+		expect(set_cell_status(:dead,[:dead,:dead,:alive])).
 		to eq :dead
+	end
+
+	it 'returns :dead for :dead and [:dead,:alive,:dead]' do 
+		expect(set_cell_status(:dead,[:dead,:alive,:dead])).
+		to eq :dead
+	end
+
+	it 'returns :alive for :alive [:alive,:alive,:dead]' do 
+		expect(set_cell_status(:alive,[:alive,:alive,:dead])).
+		to eq :alive
 	end
 
 end

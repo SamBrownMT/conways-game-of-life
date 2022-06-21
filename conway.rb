@@ -43,9 +43,9 @@ def find_neighbours(grid,coords)
 
 end
 
-def set_cell_status(neighbours)
+def set_cell_status(current_status,neighbours)
 
-	return :dead if neighbours == [:dead,:dead,:alive]
+	return :dead if neighbours.sort == [:dead,:dead,:alive].sort
 
 	:alive
 
