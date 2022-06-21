@@ -45,8 +45,14 @@ end
 
 def set_cell_status(current_status,neighbours)
 
-	return :dead if neighbours.sort == [:dead,:dead,:alive].sort
-
+	if current_status == :dead
+		if neighbours == [:alive,:alive,:alive]
+			return :alive
+		else
+			return :dead 
+		end
+	end
+	
 	:alive
 
 end

@@ -91,4 +91,14 @@ describe '#set_cell_status' do
 		to eq :alive
 	end
 
+	it 'returns :dead for :dead [:alive,:alive,:dead]' do 
+		expect(set_cell_status(:dead,[:alive,:alive,:dead])).
+		to eq :dead
+	end
+
+	it 'returns :alive for :dead [:alive,:alive,:alive]' do 
+		expect(set_cell_status(:dead,[:alive,:alive,:alive])).
+		to eq :alive
+	end
+
 end
