@@ -37,4 +37,24 @@ describe "#find_neighbours" do
 		expect(find_neighbours([['a','b','c']],[0,1])).
 		to match_array ['a','c']
 	end
+
+	it 'returns b,c,d for [[a,b],[c,d]] and 0,0' do 
+		expect(find_neighbours([['a','b'],['c','d']],[0,0])).
+		to match_array ['b','c','d']
+	end
+
+	it 'returns a,b,d for [[a,b],[c,d]] and 1,0' do 
+		expect(find_neighbours([['a','b'],['c','d']],[1,0])).
+		to match_array ['a','b','d']
+	end
+
+	it 'returns a,b,c for [[a,b],[c,d]] and 1,1' do 
+		expect(find_neighbours([['a','b'],['c','d']],[1,1])).
+		to match_array ['a','b','c']
+	end
+
+	it 'returns a,c,d for [[a,b],[c,d]] and 0,1' do 
+		expect(find_neighbours([['a','b'],['c','d']],[0,1])).
+		to match_array ['a','c','d']
+	end
 end
