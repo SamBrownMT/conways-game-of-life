@@ -45,14 +45,13 @@ end
 
 def set_cell_status(current_status,neighbours)
 
-	if current_status == :dead
-		if neighbours == [:alive,:alive,:alive]
-			return :alive
-		else
-			return :dead 
+	if current_status == :alive
+		if neighbours.count(:alive) < 2 || neighbours.count(:alive) > 3 
+			return :dead
+		else return :alive
 		end
+	else
+		return neighbours.count(:alive) == 3 ? :alive : :dead
 	end
-	
-	:alive
 
 end
