@@ -17,5 +17,24 @@ describe "#next_generation" do
 		to eq([[:dead,:alive,:dead] * 3])
 	end
 
+	xit 'returns toad(p2) given toad(p1)' do
+		expect(next_generation([[:dead] * 4,[:dead] + [:alive] * 3, [:alive] * 3 + 
+			[:dead],[:dead] * 4])).
+		to eq([[:dead,:dead,:alive,:dead]] + [[:alive,:dead,:dead,:alive]] * 2 +
+			[[:dead,:alive,:dead,:dead]])
+	end
+
     
+end
+
+describe "#find_neighbours" do
+	
+	it 'returns b for [[a,b]] and 0,0' do 
+		expect(find_neighbours([['a','b']],[0,0])).to eq ['b']
+	end
+
+	it 'returns a,c for [[a,b,c]] and 0,1' do 
+		expect(find_neighbours([['a','b','c']],[0,1])).
+		to match_array ['a','c']
+	end
 end

@@ -6,4 +6,17 @@ def next_generation(input)
 	else
 		input
 	end
+
+end
+
+def find_neighbours(grid,coords)
+
+	
+	neighbour_one = grid[coords[0]][coords[1] + 1]
+	unless coords[1] == 0
+		neighbour_two = grid[coords[0]][coords[1] - 1]
+	end
+
+	[neighbour_one,neighbour_two].select { |e| e != nil  }
+
 end
