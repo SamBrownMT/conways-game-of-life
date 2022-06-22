@@ -14,16 +14,19 @@ describe "#next_generation" do
 		 [:dead,:dead,:dead]])
 	end
 
-	xit 'returns blinker(p1) given blinker(p2)' do
-		expect(next_generation([[:dead] * 3,[:alive] * 3, [:dead] * 3])).
-		to eq([[:dead,:alive,:dead] * 3])
+	it 'returns blinker(p1) given blinker(p2)' do
+		expect(next_generation([[:dead,:dead,:dead],[:alive,:alive,:alive],
+		 [:dead,:dead,:dead]])).
+		to eq([[:dead,:alive,:dead],
+			[:dead,:alive,:dead],[:dead,:alive,:dead]])
 	end
 
-	xit 'returns toad(p2) given toad(p1)' do
-		expect(next_generation([[:dead] * 4,[:dead] + [:alive] * 3, [:alive] * 3 + 
-			[:dead],[:dead] * 4])).
-		to eq([[:dead,:dead,:alive,:dead]] + [[:alive,:dead,:dead,:alive]] * 2 +
-			[[:dead,:alive,:dead,:dead]])
+	it 'returns toad(p2) given toad(p1)' do
+		expect(next_generation([[:dead,:dead,:dead,:dead],
+			[:dead,:alive,:alive,:alive], [:alive,:alive,:alive,:dead],
+			[:dead,:dead,:dead,:dead]])).
+		to eq([[:dead,:dead,:alive,:dead],[:alive,:dead,:dead,:alive],
+			[:alive,:dead,:dead,:alive],[:dead,:alive,:dead,:dead]])
 	end
 
     
