@@ -14,7 +14,7 @@ class ConwayGame
 		output.each_index { |row| 
 			column = 0
 			while column < @grid[0].length 
-				neighbours = find_neighbours(@grid,[row,column])
+				neighbours = find_neighbours([row,column])
 				new_status = set_cell_status(@grid[row][column],neighbours)
 				output[row][column] = new_status
 				column += 1
@@ -23,34 +23,34 @@ class ConwayGame
 
 	end
 
-	def find_neighbours(grid,coords)
+	def find_neighbours(coords)
 
 		neighbours = []
 
-		unless coords[0] == grid[0].length
-			neighbours.push(grid[coords[0]][coords[1] + 1])
+		unless coords[0] == @grid[0].length
+			neighbours.push(@grid[coords[0]][coords[1] + 1])
 		end
 
 		unless coords[1] == 0
-			neighbours.push(grid[coords[0]][coords[1] - 1])
+			neighbours.push(@grid[coords[0]][coords[1] - 1])
 		end
 
-		unless coords[0] == grid.length - 1
-			neighbours.push(grid[coords[0] + 1][coords[1]])
-			neighbours.push(grid[coords[0] + 1][coords[1] + 1])
+		unless coords[0] == @grid.length - 1
+			neighbours.push(@grid[coords[0] + 1][coords[1]])
+			neighbours.push(@grid[coords[0] + 1][coords[1] + 1])
 		end
 
 		unless coords[0] == 0
-			neighbours.push(grid[coords[0] - 1][coords[1]])
-			neighbours.push(grid[coords[0] - 1][coords[1] + 1])
+			neighbours.push(@grid[coords[0] - 1][coords[1]])
+			neighbours.push(@grid[coords[0] - 1][coords[1] + 1])
 		end
 
 		unless coords[0] == 0 || coords[1] == 0
-			neighbours.push(grid[coords[0] - 1][coords[1] - 1])
+			neighbours.push(@grid[coords[0] - 1][coords[1] - 1])
 		end
 
-		unless coords[1] == 0 || coords[0] == grid.length - 1
-			neighbours.push(grid[coords[0] + 1][coords[1] - 1])
+		unless coords[1] == 0 || coords[0] == @grid.length - 1
+			neighbours.push(@grid[coords[0] + 1][coords[1] - 1])
 		end
 
 		neighbours.select { |e| e != nil  }

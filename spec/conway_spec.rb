@@ -46,42 +46,50 @@ describe ConwayGame do
 
 		subject = ConwayGame.new([['foo']])
 		
-		it 'returns b for [[a,b]] and 0,0' do 
-			expect(subject.find_neighbours([['a','b']],[0,0])).to eq ['b']
+		it 'returns b for [[a,b]] and 0,0' do
+			subject = ConwayGame.new([['a','b']])
+			expect(subject.find_neighbours([0,0])).to eq ['b']
 		end
 
 		it 'returns a,c for [[a,b,c]] and 0,1' do 
-			expect(subject.find_neighbours([['a','b','c']],[0,1])).
+			subject = ConwayGame.new([['a','b','c']])
+			expect(subject.find_neighbours([0,1])).
 			to match_array ['a','c']
 		end
 
 		it 'returns b,c,d for [[a,b],[c,d]] and 0,0' do 
-			expect(subject.find_neighbours([['a','b'],['c','d']],[0,0])).
+			subject = ConwayGame.new([['a','b'],['c','d']])
+			expect(subject.find_neighbours([0,0])).
 			to match_array ['b','c','d']
 		end
 
 		it 'returns a,b,d for [[a,b],[c,d]] and 1,0' do 
-			expect(subject.find_neighbours([['a','b'],['c','d']],[1,0])).
+			subject = ConwayGame.new([['a','b'],['c','d']])
+			expect(subject.find_neighbours([1,0])).
 			to match_array ['a','b','d']
 		end
 
 		it 'returns a,b,c for [[a,b],[c,d]] and 1,1' do 
-			expect(subject.find_neighbours([['a','b'],['c','d']],[1,1])).
+			subject = ConwayGame.new([['a','b'],['c','d']])
+			expect(subject.find_neighbours([1,1])).
 			to match_array ['a','b','c']
 		end
 
 		it 'returns a,c,d for [[a,b],[c,d]] and 0,1' do 
-			expect(subject.find_neighbours([['a','b'],['c','d']],[0,1])).
+			subject = ConwayGame.new([['a','b'],['c','d']])
+			expect(subject.find_neighbours([0,1])).
 			to match_array ['a','c','d']
 		end
 
 		it 'returns 1,2,3,4,6,7,8,9 for [[1,2,3],[4,5,6],[7,8,9]] and 1,1' do 
-			expect(subject.find_neighbours([[1,2,3],[4,5,6],[7,8,9]],[1,1])).
+			subject = ConwayGame.new([[1,2,3],[4,5,6],[7,8,9]])
+			expect(subject.find_neighbours([1,1])).
 			to match_array [1,2,3,4,6,7,8,9]
 		end
 
 		it 'returns 2,5,6 for [[1,2,3],[4,5,6],[7,8,9]] and 0,2' do 
-			expect(subject.find_neighbours([[1,2,3],[4,5,6],[7,8,9]],[0,2])).
+			subject = ConwayGame.new([[1,2,3],[4,5,6],[7,8,9]])
+			expect(subject.find_neighbours([0,2])).
 			to match_array [2,5,6]
 		end
 	end
