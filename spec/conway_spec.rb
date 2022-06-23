@@ -7,32 +7,34 @@ describe ConwayGame do
 	end
 
 	context "#next_generation" do
-
-		subject = ConwayGame.new([['foo']])
 		
 		it 'returns block live cells given block of live cells' do
-			expect(subject.next_generation([[:alive,:alive],[:alive,:alive]])).
+			subject = ConwayGame.new([[:alive,:alive],[:alive,:alive]])
+			expect(subject.next_generation).
 			to eq([[:alive,:alive],[:alive,:alive]])
 		end
 
 		it 'returns blinker(p2) given blinker(p1)' do
-			expect(subject.next_generation([[:dead,:alive,:dead],
-				[:dead,:alive,:dead],[:dead,:alive,:dead]])).
+			subject = ConwayGame.new([[:dead,:alive,:dead],
+				[:dead,:alive,:dead],[:dead,:alive,:dead]])
+			expect(subject.next_generation).
 			to eq([[:dead,:dead,:dead],[:alive,:alive,:alive],
 			 [:dead,:dead,:dead]])
 		end
 
 		it 'returns blinker(p1) given blinker(p2)' do
-			expect(subject.next_generation([[:dead,:dead,:dead],[:alive,:alive,:alive],
-			 [:dead,:dead,:dead]])).
+			subject = ConwayGame.new([[:dead,:dead,:dead],[:alive,:alive,:alive],
+			 [:dead,:dead,:dead]])
+			expect(subject.next_generation).
 			to eq([[:dead,:alive,:dead],
 				[:dead,:alive,:dead],[:dead,:alive,:dead]])
 		end
 
 		it 'returns toad(p2) given toad(p1)' do
-			expect(subject.next_generation([[:dead,:dead,:dead,:dead],
+			subject = ConwayGame.new([[:dead,:dead,:dead,:dead],
 				[:dead,:alive,:alive,:alive], [:alive,:alive,:alive,:dead],
-				[:dead,:dead,:dead,:dead]])).
+				[:dead,:dead,:dead,:dead]])
+			expect(subject.next_generation).
 			to eq([[:dead,:dead,:alive,:dead],[:alive,:dead,:dead,:alive],
 				[:alive,:dead,:dead,:alive],[:dead,:alive,:dead,:dead]])
 		end

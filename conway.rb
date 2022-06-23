@@ -7,15 +7,15 @@ class ConwayGame
 		@grid = grid
 	end
 
-	def next_generation(grid)
+	def next_generation
 
-		output = Array.new(grid.length) {Array.new(grid[0].length)}
+		output = Array.new(@grid.length) {Array.new(@grid[0].length)}
 
 		output.each_index { |row| 
 			column = 0
-			while column < grid[0].length 
-				neighbours = find_neighbours(grid,[row,column])
-				new_status = set_cell_status(grid[row][column],neighbours)
+			while column < @grid[0].length 
+				neighbours = find_neighbours(@grid,[row,column])
+				new_status = set_cell_status(@grid[row][column],neighbours)
 				output[row][column] = new_status
 				column += 1
 			end
