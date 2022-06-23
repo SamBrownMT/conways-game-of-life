@@ -1,3 +1,12 @@
+
+class ConwayGame
+	attr_accessor :grid
+	def initialize(grid)
+		@grid = grid
+	end
+
+end
+
 def next_generation(grid)
 
 	output = Array.new(grid.length) {Array.new(grid[0].length)}

@@ -117,3 +117,9 @@ describe '#set_cell_status' do
 	end
 
 end
+
+describe ConwayGame do
+	it 'initializes a grid for new instance' do 
+		expect(ConwayGame.new([['foo']]).grid).to be_truthy
+	end
+end
