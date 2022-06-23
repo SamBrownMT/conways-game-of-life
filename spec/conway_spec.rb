@@ -43,8 +43,6 @@ describe ConwayGame do
 	end
 
 	context "#find_neighbours" do
-
-		subject = ConwayGame.new([['foo']])
 		
 		it 'returns b for [[a,b]] and 0,0' do
 			subject = ConwayGame.new([['a','b']])
