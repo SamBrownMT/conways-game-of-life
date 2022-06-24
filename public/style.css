@@ -1,0 +1,11 @@
+[class^="dead"] {
+	color: white;
+}
+
+[class^="alive"]  {
+	background-color: black;
+}
+
+table {
+	color: pink;
+}

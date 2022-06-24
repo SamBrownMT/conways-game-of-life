@@ -1,6 +1,50 @@
-<form method='post' name='grid'>
-	<label for='grid'>Type in 2D grid array:</label><br>
-	<input type="text" name="grid"><br>
-	<input type="submit" name="Submit">
+<form method="post" name="grid">
+
+<table>
+	<tr>
+		<td>
+			<input type="hidden" value="dead" name="grid[0][0]">
+			<input type="checkbox" value="alive" name="grid[0][0]">
+		</td>
+		<td>
+			<input type="hidden" value="dead" name="grid[0][1]">
+			<input type="checkbox" value="alive" name="grid[0][1]">
+		</td>
+		<td>
+			<input type="hidden" value="dead" name="grid[0][2]">
+			<input type="checkbox" value="alive" name="grid[0][2]">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="hidden" value="dead" name="grid[1][0]">
+			<input type="checkbox" value="alive" name="grid[1][0]">
+		</td>
+		<td>
+			<input type="hidden" value="dead" name="grid[1][1]">
+			<input type="checkbox" value="alive" name="grid[1][1]">
+		</td>
+		<td>
+			<input type="hidden" value="dead" name="grid[1][2]">
+			<input type="checkbox" value="alive" name="grid[1][2]">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="hidden" value="dead" name="grid[2][0]">
+			<input type="checkbox" value="alive" name="grid[2][0]">
+		</td>
+		<td>
+			<input type="hidden" value="dead" name="grid[2][1]">
+			<input type="checkbox" value="alive" name="grid[2][1]">
+		</td>
+		<td>
+			<input type="hidden" value="dead" name="grid[2][2]">
+			<input type="checkbox" value="alive" name="grid[2][2]">
+		</td>
+	</tr>
+</table>
+
+<input type="submit" name="Submit">
 
 </form>
