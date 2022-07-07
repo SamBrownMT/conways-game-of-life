@@ -1,6 +1,7 @@
 require 'sinatra'
 require './conway'
 require 'yaml'
+require './helper'
  
 enable :sessions
 
@@ -19,10 +20,17 @@ get '/game' do
 end
 
 post '/game' do 
-	redirect '/test'
+	grid_array = Helper.convert_from_hash_hash(session[:grid])
+	game = ConwayGame.new(grid_array)
+	game.next_generation
+	session[:grid] = game.grid
 end
 
 get '/test' do 
+	grid_array = Helper.convert_from_hash_hash(session[:grid])
+	game = ConwayGame.new(grid_array)
+	game.next_generation
+	session[:grid] = game.grid
 	# convert session[:grid]
 	# work on session[:grid]
 	# return new session[:grid]
