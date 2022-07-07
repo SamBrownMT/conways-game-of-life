@@ -1,11 +1,7 @@
-[class^="dead"] {
+td[value="dead"] {
 	color: white;
 }
 
-[class^="alive"]  {
+td[value="alive"]  {
 	background-color: black;
-}
-
-table {
-	color: pink;
 }

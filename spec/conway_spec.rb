@@ -39,6 +39,14 @@ describe ConwayGame do
 				[:alive,:dead,:dead,:alive],[:dead,:alive,:dead,:dead]])
 		end
 
+		it 'modifies original grid' do 
+			subject = ConwayGame.new([[:dead,:alive,:dead],
+				[:dead,:alive,:dead],[:dead,:alive,:dead]])
+			subject.next_generation
+			expect(subject.grid).
+			to eq([[:dead,:dead,:dead],[:alive,:alive,:alive],
+			 [:dead,:dead,:dead]])
+		end
 	    
 	end
 

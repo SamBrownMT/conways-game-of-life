@@ -21,6 +21,8 @@ class ConwayGame
 			end
 		}
 
+		@grid = output
+
 	end
 
 	def find_neighbours(coords)
